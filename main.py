@@ -1,4 +1,6 @@
 import ai_helper
+import env_set_up
+
 
 def create_new_chat():
     print('New chat\n')
@@ -17,6 +19,10 @@ def create_new_chat():
 
     print("Program ended.")
 
+
+# initial setup
+print('Welcome to AI Helper!')
+env_set_up.check_and_set_api_key()
 
 print('Press 1 for new chat\nPress 2 to load latest chat\nPress 3 to clear chat')
 user_input = input("User: ")
