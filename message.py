@@ -1,5 +1,5 @@
 class Message:
-    def __main__(self,time,author,content):
+    def __init__(self,time,author,content):
         self.time=time
         self.author=author
         self.content=content

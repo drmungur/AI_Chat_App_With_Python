@@ -16,4 +16,5 @@ def send_message(message):
         ]
     )
 
-    return completion.choices[0].message.content
+    # return completion.choices[0].message.content
+    return 'Placeholder'

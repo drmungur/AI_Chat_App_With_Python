@@ -1,7 +1,14 @@
 import ai_helper
 import os
 
+import env_set_up
+
 FILE_NAME = 'conversation.txt'
+
+
+def save_to_file(message_list):
+    pass
+    # for each message in the list, put it in the file
 
 
 def create_new_chat():
@@ -9,15 +16,18 @@ def create_new_chat():
     print('Instruction: enter your message, and hit enter. \nEnter \'quit\' if you want to end the chat.\n')
 
     user_message = ''
+    message_list = []
 
     while True:
         user_message = input('Enter message: ')
         user_message = user_message.strip()
         if user_message == 'quit':
+            # if the message_list's length > 0, save it to the file by using save_to_file function
             break
         else:
             response = ai_helper.send_message(user_message)
             print('ChatGPT: ' + response)
+            # create a message object and add it to message_list
 
     print("Program ended.")
 
@@ -38,6 +48,7 @@ def load_latest_chat():
 def delete_chat():
     if os.path.isfile(FILE_NAME):
         del FILE_NAME
+
 
 # initial setup
 print('Welcome to AI Helper!')
