@@ -1,12 +1,17 @@
 import ai_helper
 import os
-
+import message
 import env_set_up
+from datetime import datetime
 
 FILE_NAME = 'conversation.txt'
 
 
 def save_to_file(message_list):
+    with open (FILE_NAME, 'w') as f:
+        for message in message_list:
+            f.write(message + '\n')
+
     pass
     # for each message in the list, put it in the file
 
@@ -28,6 +33,9 @@ def create_new_chat():
             response = ai_helper.send_message(user_message)
             print('ChatGPT: ' + response)
             # create a message object and add it to message_list
+            current_time = datetime.now().time()
+            messg= message(current_time,'user1',response)
+            message_list.append(messg)
 
     print("Program ended.")
 
@@ -67,3 +75,4 @@ elif user_input == '2':
     load_latest_chat()
 else:
     print('User opts to delete chat permanently.')
+    delete_chat()
