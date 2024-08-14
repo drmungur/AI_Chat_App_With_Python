@@ -8,9 +8,9 @@ FILE_NAME = 'conversation.txt'
 
 
 def save_to_file(message_list):
-    with open (FILE_NAME, 'w') as f:
-        for message in message_list:
-            f.write(message + '\n')
+    with open(FILE_NAME, 'w') as f:
+        for msg in message_list:
+            f.write(msg + '\n')
 
     pass
     # for each message in the list, put it in the file
@@ -34,8 +34,10 @@ def create_new_chat():
             print('ChatGPT: ' + response)
             # create a message object and add it to message_list
             current_time = datetime.now().time()
-            messg= message(current_time,'user1',response)
-            message_list.append(messg)
+            message_from_user = message.Message(current_time, 'user', response)
+            message_from_ai = message.Message(current_time, 'ChatGPT', response)
+            message_list.append(message_from_user)
+            message_list.append(message_from_ai)
 
     print("Program ended.")
 
